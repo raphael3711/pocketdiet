@@ -1,0 +1,8 @@
+{
+  "name": "Диетолог в кармане",
+  "short_name": "Диетолог",
+  "start_url": ".",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "description": "Прототип мобильного помощника по питанию."
+}
