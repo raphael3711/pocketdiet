@@ -2,35 +2,41 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Диетолог в кармане</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css"/>
 </head>
 <body>
-  <div class="background"></div>
-  <div class="container">
-    <h1 id="greeting">Загрузка...</h1>
-    <select id="language" onchange="setLang(this.value)">
-      <option value="ru">Русский</option>
-      <option value="uk">Українська</option>
-      <option value="en">English</option>
-      <option value="fr">Français</option>
-      <option value="de">Deutsch</option>
-      <option value="zh">中文</option>
-      <option value="hy">Հայերեն</option>
-    </select>
-    <div class="buttons">
-      <button onclick="scanProduct()" id="scanBtn">📷</button>
-      <button onclick="openCart()" id="cartBtn">🛒</button>
-      <button onclick="showRecipes()" id="recipeBtn">📖</button>
-      <button onclick="analyzeAI()" id="aiBtn">🧠</button>
-      <button onclick="openRegister()" id="regBtn">👤</button>
+  <div id="splash">
+    <img src="logo.png" alt="Logo" class="logo"/>
+    <button onclick="startApp()">Начать</button>
+  </div>
+
+  <div id="app" style="display:none;">
+    <header>
+      <img src="logo.png" alt="Logo" class="logo-small"/>
+      <select id="language" onchange="setLang(this.value)">
+        <option value="ru">RU</option>
+        <option value="uk">UA</option>
+        <option value="en">EN</option>
+        <option value="fr">FR</option>
+        <option value="de">DE</option>
+        <option value="zh">ZH</option>
+        <option value="hy">HY</option>
+      </select>
+    </header>
+    <h1 id="greeting">Добро пожаловать!</h1>
+    <div class="grid">
+      <button onclick="scanProduct()">📷 Сканировать</button>
+      <button onclick="openCart()">🛒 Корзина</button>
+      <button onclick="showRecipes()">📖 Рецепты</button>
+      <button onclick="analyzeAI()">🧠 AI-Анализ</button>
+      <button onclick="openRegister()">👤 Регистрация</button>
     </div>
     <div id="content"></div>
-    <video id="video" autoplay hidden></video>
   </div>
-  <script src="lang.js"></script>
+
   <script src="logic.js"></script>
 </body>
 </html>

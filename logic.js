@@ -1,57 +1,43 @@
 
-let translations = {
-  "ru": { greeting: "Привет! Это MVP «Диетолог в кармане»", scan: "Сканировать", cart: "Корзина", recipe: "Рецепты", ai: "AI-Анализ", reg: "Регистрация" }, "uk": { greeting: "Привіт! Це MVP «Дієтолог у кишені»", scan: "Сканировать", cart: "Корзина", recipe: "Рецепты", ai: "AI-Анализ", reg: "Регистрация" }, "en": { greeting: "Hello! This is Pocket Dietitian MVP", scan: "Сканировать", cart: "Корзина", recipe: "Рецепты", ai: "AI-Анализ", reg: "Регистрация" }, "fr": { greeting: "Bonjour! MVP diététicien de poche", scan: "Сканировать", cart: "Корзина", recipe: "Рецепты", ai: "AI-Анализ", reg: "Регистрация" }, "de": { greeting: "Hallo! MVP Diätassistent", scan: "Сканировать", cart: "Корзина", recipe: "Рецепты", ai: "AI-Анализ", reg: "Регистрация" }, "zh": { greeting: "你好！这是口袋营养师", scan: "Сканировать", cart: "Корзина", recipe: "Рецепты", ai: "AI-Анализ", reg: "Регистрация" }, "hy": { greeting: "Բարև! Գրպանի դիետոլոգ", scan: "Сканировать", cart: "Корзина", recipe: "Рецепты", ai: "AI-Анализ", reg: "Регистрация" }
+function startApp() {
+  document.getElementById('splash').style.display = 'none';
+  document.getElementById('app').style.display = 'block';
+  setLang(localStorage.getItem("lang") || "ru");
+}
+
+const translations = {
+  ru: { greeting: "Привет!", scan: "Сканировать", cart: "Корзина", recipe: "Рецепты", ai: "AI-Анализ", reg: "Регистрация" },
+  uk: { greeting: "Привіт!", scan: "Сканувати", cart: "Кошик", recipe: "Рецепти", ai: "AI-аналіз", reg: "Реєстрація" },
+  en: { greeting: "Welcome!", scan: "Scan", cart: "Cart", recipe: "Recipes", ai: "AI Analysis", reg: "Register" },
+  fr: { greeting: "Bienvenue!", scan: "Scanner", cart: "Panier", recipe: "Recettes", ai: "Analyse AI", reg: "Inscription" },
+  de: { greeting: "Willkommen!", scan: "Scannen", cart: "Warenkorb", recipe: "Rezepte", ai: "AI-Analyse", reg: "Registrierung" },
+  zh: { greeting: "欢迎!", scan: "扫描", cart: "购物车", recipe: "食谱", ai: "AI 分析", reg: "注册" },
+  hy: { greeting: "Բարի գալուստ!", scan: "Սքանավորել", cart: "Զամբյուղ", recipe: "Բաղադրատոմսեր", ai: "AI Վերլուծություն", reg: "Գրանցում" }
 };
 
 function setLang(lang) {
   const t = translations[lang];
   document.getElementById("greeting").innerText = t.greeting;
-  document.getElementById("scanBtn").innerText = "📷 " + t.scan;
-  document.getElementById("cartBtn").innerText = "🛒 " + t.cart;
-  document.getElementById("recipeBtn").innerText = "📖 " + t.recipe;
-  document.getElementById("aiBtn").innerText = "🧠 " + t.ai;
-  document.getElementById("regBtn").innerText = "👤 " + t.reg;
+  document.querySelectorAll("button")[1].innerText = "📷 " + t.scan;
+  document.querySelectorAll("button")[2].innerText = "🛒 " + t.cart;
+  document.querySelectorAll("button")[3].innerText = "📖 " + t.recipe;
+  document.querySelectorAll("button")[4].innerText = "🧠 " + t.ai;
+  document.querySelectorAll("button")[5].innerText = "👤 " + t.reg;
   localStorage.setItem("lang", lang);
 }
 
-document.addEventListener("DOMContentLoaded", () => {
-  const lang = localStorage.getItem("lang") || "ru";
-  document.getElementById("language").value = lang;
-  setLang(lang);
-  loadDatabase();
-});
-
-let foodDB = [];
-
-function loadDatabase() {
-  fetch("db.json")
-    .then(res => res.json())
-    .then(data => { foodDB = data; });
-}
-
 function scanProduct() {
-  alert("Запуск камеры для сканирования... (заглушка)");
+  document.getElementById("content").innerHTML = "<p>Сканирование запущено (заглушка)</p>";
 }
-
 function openCart() {
-  document.getElementById("content").innerHTML = "<h3>Корзина пуста</h3>";
+  document.getElementById("content").innerHTML = "<p>Корзина пуста</p>";
 }
-
 function showRecipes() {
-  const rec = foodDB.slice(0, 3).map(f => `<li>${f.name} — ${f.calories} ккал</li>`).join("");
-  document.getElementById("content").innerHTML = "<ul>" + rec + "</ul>";
+  document.getElementById("content").innerHTML = "<ul><li>Салат из брокколи</li><li>Рис с авокадо</li><li>Яблочный смузи</li></ul>";
 }
-
 function analyzeAI() {
-  const summary = foodDB.map(f => `${f.name}: ${f.calories} ккал`).join("<br>");
-  document.getElementById("content").innerHTML = "<p>Быстрый анализ:</p><p>" + summary + "</p>";
+  document.getElementById("content").innerHTML = "<p>Идёт анализ... (заглушка)</p>";
 }
-
 function openRegister() {
-  document.getElementById("content").innerHTML = `
-    <h3>Регистрация</h3>
-    <input type='text' placeholder='Имя'><br>
-    <input type='email' placeholder='Email'><br>
-    <button onclick='alert("Регистрация отправлена!")'>Отправить</button>
-  `;
+  document.getElementById("content").innerHTML = "<p>Введите данные: <br><input placeholder='Имя'><br><input placeholder='Email'><br><button>Отправить</button></p>";
 }
