@@ -2,45 +2,20 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Диетолог в кармане</title>
-  <link rel="stylesheet" href="style.css"/>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Диетолог в кармане</title>
+    <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <div id="splash">
-    <img src="logo.png" alt="Logo" class="logo"/>
-    <div class="banner">7 дней бесплатно</div>
-    <button onclick="startApp()">Начать</button>
-  </div>
-
-  <div id="app" style="display:none;">
-    <header>
-      <img src="logo.png" alt="Logo" class="logo-small"/>
-      <select id="language" onchange="setLang(this.value)">
-        <option value="ru">RU</option>
-        <option value="uk">UA</option>
-        <option value="en">EN</option>
-        <option value="fr">FR</option>
-        <option value="de">DE</option>
-        <option value="zh">ZH</option>
-        <option value="hy">HY</option>
-        <option value="es">ES</option>
-        <option value="ar">AR</option>
-        <option value="tr">TR</option>
-      </select>
-    </header>
-    <h1 id="greeting">Добро пожаловать!</h1>
-    <div class="grid">
-      <button onclick="scanProduct()">📷 Сканировать</button>
-      <button onclick="openCart()">🛒 Корзина</button>
-      <button onclick="showRecipes()">📖 Рецепты</button>
-      <button onclick="analyzeAI()">🧠 AI-Анализ</button>
-      <button onclick="openRegister()">👤 Регистрация</button>
+    <div class="splash">
+        <img src="logo.png" alt="logo" class="logo" />
+        <button onclick="startApp()">Начать</button>
     </div>
-    <div id="content"></div>
-  </div>
-
-  <script src="logic.js"></script>
+    <script>
+        function startApp() {
+            window.location.href = 'main.html';
+        }
+    </script>
 </body>
 </html>
