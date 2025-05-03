@@ -1,0 +1,10 @@
+
+[
+  {"name": "Яблоко", "calories": 52, "type": "fruit"},
+  {"name": "Банан", "calories": 96, "type": "fruit"},
+  {"name": "Огурец", "calories": 16, "type": "vegetable"},
+  {"name": "Куриная грудка", "calories": 165, "type": "meat"},
+  {"name": "Рис", "calories": 130, "type": "grain"},
+  {"name": "Авокадо", "calories": 160, "type": "fruit"},
+  {"name": "Брокколи", "calories": 55, "type": "vegetable"}
+]
