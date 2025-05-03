@@ -1,3 +1,33 @@
 
-body { font-family: sans-serif; text-align: center; padding: 2em; }
-.buttons button { margin: 1em; padding: 1em 2em; font-size: 1em; border-radius: 10px; }
+body {
+    font-family: 'Segoe UI', sans-serif;
+    text-align: center;
+    padding: 20px;
+    background: linear-gradient(to bottom right, #f5faff, #e0f7fa);
+    color: #333;
+}
+h1 {
+    font-size: 2em;
+    margin-bottom: 10px;
+}
+select {
+    margin: 10px;
+    padding: 5px;
+    font-size: 1em;
+}
+.buttons button {
+    display: block;
+    width: 80%;
+    margin: 10px auto;
+    padding: 15px;
+    font-size: 1em;
+    border: none;
+    border-radius: 12px;
+    background-color: #e0e0e0;
+    box-shadow: 2px 2px 10px rgba(0,0,0,0.1);
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+.buttons button:hover {
+    background-color: #d0f0c0;
+}
