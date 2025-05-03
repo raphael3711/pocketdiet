@@ -1,26 +1,17 @@
 
-function scanProduct() {
-    const video = document.getElementById('preview');
-    if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
-        navigator.mediaDevices.getUserMedia({ video: { facingMode: "environment" } })
-            .then(function (stream) {
-                video.srcObject = stream;
-                video.play();
-                video.style.display = 'block';
-                alert("Камера запущена. Добавим сканер в следующем этапе!");
-            })
-            .catch(function (err) {
-                console.error("Ошибка доступа к камере:", err);
-            });
-    } else {
-        alert("Ваш браузер не поддерживает доступ к камере");
-    }
+function startScan() {
+  const video = document.getElementById('camera');
+  video.hidden = false;
+  navigator.mediaDevices.getUserMedia({ video: true })
+    .then(stream => { video.srcObject = stream; })
+    .catch(err => { alert("Ошибка доступа к камере: " + err); });
 }
+function openCart() { document.getElementById('output').innerText = dict.cart; }
+function showRecipes() { document.getElementById('output').innerText = dict.recipes; }
+function runAIAnalysis() { document.getElementById('output').innerText = dict.ai; }
+function registerUser() { document.getElementById('output').innerText = dict.register; }
 
-function openCart() {
-    alert("Функция корзины в разработке");
-}
-
-function openLogin() {
-    alert("Форма входа будет доступна в следующем обновлении");
+function changeLang(lang) {
+  localStorage.setItem('lang', lang);
+  loadLang(lang);
 }
