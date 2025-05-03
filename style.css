@@ -1,7 +1,7 @@
 
 body {
   font-family: 'Segoe UI', sans-serif;
-  background: #f8f9fa;
+  background: #f7f9fb;
   margin: 0;
   padding: 0;
   text-align: center;
@@ -13,7 +13,7 @@ header {
   padding: 10px 20px;
 }
 .logo, .logo-small {
-  max-height: 80px;
+  max-height: 90px;
 }
 .grid {
   display: grid;
@@ -32,7 +32,7 @@ button {
   cursor: pointer;
 }
 button:hover {
-  background: #43a047;
+  background: #388e3c;
 }
 #splash {
   display: flex;
@@ -40,4 +40,12 @@ button:hover {
   align-items: center;
   justify-content: center;
   height: 100vh;
+}
+.banner {
+  background: #ffc107;
+  color: #333;
+  padding: 6px 12px;
+  border-radius: 8px;
+  margin: 10px;
+  font-weight: bold;
 }
