@@ -1,10 +1,18 @@
+
 body {
     font-family: Arial, sans-serif;
     text-align: center;
-    margin-top: 50px;
+    padding: 20px;
 }
-button {
+h1 {
+    margin-bottom: 30px;
+}
+.button-container button {
     margin: 10px;
-    padding: 15px 25px;
+    padding: 10px 20px;
     font-size: 16px;
+    border-radius: 12px;
+    border: 1px solid #ccc;
+    background-color: #f4f4f4;
+    cursor: pointer;
 }
